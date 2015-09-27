@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /* feedreader.js
  *
  * This is the spec file that Jasmine will read and contains
