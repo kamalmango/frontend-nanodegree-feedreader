@@ -90,6 +90,8 @@ $(function() {
         /* test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          */
+
+        /*
         beforeEach(function(done){
             $('.feed').empty()
 
@@ -107,5 +109,19 @@ $(function() {
             expect(entries_before).not.toEqual(entries_after);
             done();
         });
+*/
+        beforeEach(function(done){
+            loadFeed(0, function(){
+                entries_before = $('.feed').find("h2").text();
+                loadFeed(1, done);
+            });
+        });
+
+        it('content changes when new feed is loaded', function(done){
+            entries_after = $('.feed').find("h2").text();
+            expect(entries_before).not.toEqual(entries_after);
+            done();
+        });
+
     });     
 }());
